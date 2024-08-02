@@ -1,13 +1,13 @@
 import datetime
 import tkinter as tk
-from tkinter import colorchooser, simpledialog
+from tkinter import colorchooser
 from PIL import Image, ImageTk
-from tkinter.filedialog import askopenfilename, asksaveasfilename
+from tkinter.filedialog import asksaveasfilename
 class ColorToolApp(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.title("Panoply Colors Tool")
+        self.title("CPT Generator")
         self.geometry("600x400")
 
         self.colors = [
@@ -25,7 +25,7 @@ class ColorToolApp(tk.Tk):
 
     def __create_widgets(self):
         '''Creates Widgets for the interface'''
-        self.title_label = tk.Label(self, text="Panoply Colors Tool", font=("Arial", 16))
+        self.title_label = tk.Label(self, text="CPT Generator", font=("Arial", 16))
         self.title_label.pack(pady=20)
 
         self.gradient_preview = tk.Canvas(self, height=50, width=560, bg="white")
