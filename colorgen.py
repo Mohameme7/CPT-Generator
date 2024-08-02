@@ -87,7 +87,7 @@ class ColorToolApp(tk.Tk):
         position_entry = tk.Entry(frame, width=5)
         position_entry.insert(0, position)
         position_entry.pack(side=tk.LEFT, padx=5)
-        position_entry.bind("<KeyRelease>", lambda e, idx=index: self.__update_position(idx, position_entry.get()))
+        position_entry.bind("<FocusOut>", lambda e, idx=index: self.__update_position(idx, position_entry.get()))
 
         remove_button = tk.Button(frame, text="Remove", command=lambda idx=index: self.remove_color(idx))
         remove_button.pack(side=tk.LEFT, padx=5)
