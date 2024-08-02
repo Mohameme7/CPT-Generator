@@ -16,7 +16,7 @@ CPTGen.mainloop() #Run The Interface
 print(CPTGen)
 
 #Output Will be a CPT format of what you have chose and created inside the app,
-#to save it as a variable click on "Save CPT As Class __str__" or click on Save As CPT To save it as a file.
+#To save it as a variable click on "Save CPT As Class __str__" or click on Save As CPT To save it as a file.
 ```
 
 # Examples
@@ -24,5 +24,5 @@ Check [These 2 Notebook examples using matplotlib](https://github.com/Mohameme7/
 
 
 # Credits
-This project is completely inspired by Mr. Khalid-Al-Otaibi or [@AlJareerMJO](https://x.com/AljareerMJO) on twitter
+This project is completely inspired by Mr. Khalid-Al-Otaibi or [@AlJareerMJO](https://x.com/AljareerMJO) on twitter,
 I got the idea from one of the inventions he made on his website and reinvented the wheel with Python and made it as a usable framework, [Check Out his website](https://www.madden-julian-oscillation.com/researchers-tools.html#)
