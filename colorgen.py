@@ -11,14 +11,14 @@ class ColorToolApp(tk.Tk):
         self.geometry("600x400")
 
         self.colors = [
-            {"color": "#ff0000", "position": 0},
+            {"color": "#ff0000", "position": 100},
             {"color": "#00ff00", "position": 50},
-            {"color": "#0000ff", "position": 100}
+            {"color": "#0000ff", "position": 0}
         ]
         self.cpt = ''
         self.__create_widgets()
         self.__update_gradient()
-
+        self.mainloop()
     def __str__(self):
         return self.cpt
 
@@ -46,11 +46,21 @@ class ColorToolApp(tk.Tk):
 
         self.savebutt2 = tk.Button(self, text="Save CPT As Class __str__", command=self.SaveAsVAR)
         self.savebutt2.pack(side=tk.LEFT, padx=10)
+        self.PositionFix = tk.Button(self, text='Equalize Positions', command=self.FixPosition)
+        self.PositionFix.pack(side=tk.LEFT, padx=10)
+
 
     def SaveAsVAR(self):
         '''Saves the CPT as a string and can be called with __str__, EG: print(ColorClass)'''
         self.cpt = self.__generate_cpt_content()
         self.destroy()
+
+
+    def FixPosition(self):
+        ColorNum = len(self.colors)
+        for idx, color in enumerate(self.colors):
+            new_position = (100 / (ColorNum - 1)) * idx
+            self.__update_position(idx, new_position)
 
 
     def __update_gradient(self):
@@ -94,6 +104,11 @@ class ColorToolApp(tk.Tk):
 
     def __get_gradient_color(self, position):
         self.colors.sort(key=lambda x: x['position'])
+
+        if position <= self.colors[0]['position']:
+            return self.hex_to_rgb(self.colors[0]['color'])
+        elif position >= self.colors[-1]['position']:
+            return self.hex_to_rgb(self.colors[-1]['color'])
         for i in range(len(self.colors) - 1):
             pos1 = self.colors[i]['position']
             pos2 = self.colors[i + 1]['position']
